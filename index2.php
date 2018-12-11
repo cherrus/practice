@@ -26,4 +26,3 @@ function checkStringEntry($find_that_str, $find_there_str){
         $result = true;
     return $result;
 }
-
