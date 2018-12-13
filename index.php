@@ -1,27 +1,27 @@
 <?php
-function checkStringEntry(string $findThatString, string $findThereString):bool{
+function checkStringEntry(string $needle, string $haystack):bool{
     $result = false;
-    if( ($findThatString == "") || ($findThereString == "") ){
+    if( ($needle == "") || ($haystack == "") ){
         return $result;
     }
-    $lenFindThatString = (strlen($findThatString)-1);
-    $lenFindThereString = (strlen($findThereString)-1);
-    if($lenFindThatString > $lenFindThereString){
+    $needleLast = (strlen($needle)-1);
+    $haystackLast = (strlen($haystack)-1);
+    if($needleLast > $haystackLast){
         return $result;
     }
-    print "Ищем " . $findThatString . " в " . $findThereString . "<br>";
-    $indexJ = 0;
-    $difference = $lenFindThereString - $lenFindThatString +1;
-    for($indexJ; $indexJ < $difference; $indexJ++) {
-        if (($findThatString[0] == $findThereString[$indexJ]) && ($findThatString[$lenFindThatString] == $findThereString[$indexJ + $lenFindThatString])) {
+    print "Ищем " . $needle . " в " . $haystack . "<br>";
+    $indexH = 0;
+    $difference = $haystackLast - $needleLast +1;
+    for($indexH; $indexH < $difference; $indexH++) {
+        if ( ($needle[0] == $haystack[$indexH]) && ($needle[$needleLast] == $haystack[$indexH + $needleLast]) ) {
             $entryFlag = 2;
-            $indexI = 1;
-            for ($indexI; $indexI < $lenFindThatString; $indexI++) {
-                if ($findThatString[$indexI] == $findThereString[$indexI + $indexJ]) {
+            $indexN = 1;
+            for ($indexN; $indexN < $needleLast; $indexN++) {
+                if ($needle[$indexN] == $haystack[$indexN + $indexH]) {
                     $entryFlag++;
                 }
             }
-            if ($entryFlag > $lenFindThatString) {
+            if ($entryFlag > $needleLast) {
                 $result = true;
                 return $result;
             }
