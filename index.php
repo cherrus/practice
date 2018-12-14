@@ -1,7 +1,7 @@
 <?php
 function checkStringEntry(string $needle, string $haystack):bool{
     $result = false;
-    if( ($needle == "") || ($haystack == "") ){
+    if (($needle == "") || ($haystack == "")) {
         return $result;
     }
     $needleLast = (strlen($needle)-1);
@@ -12,8 +12,9 @@ function checkStringEntry(string $needle, string $haystack):bool{
     print "Ищем " . $needle . " в " . $haystack . "<br>";
     $indexH = 0;
     $difference = $haystackLast - $needleLast +1;
-    for($indexH; $indexH < $difference; $indexH++) {
-        if ( ($needle[0] == $haystack[$indexH]) && ($needle[$needleLast] == $haystack[$indexH + $needleLast]) ) {
+    for ($indexH; $indexH < $difference; $indexH++) {
+        if (($needle[0] == $haystack[$indexH]) &&
+            ($needle[$needleLast] == $haystack[$indexH + $needleLast])) {
             $entryFlag = 2;
             $indexN = 1;
             for ($indexN; $indexN < $needleLast; $indexN++) {
